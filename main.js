@@ -1,6 +1,6 @@
 (() => {
   const actions = {
-    birdFiles(key) {
+    birdFlies(key) {
       if (key) {
         document.querySelector(
           '[data-index="2"] .bird'
@@ -11,7 +11,7 @@
         ).style.transform = `translateX(-100%)`;
       }
     },
-    birdFiles2(key) {
+    birdFlies2(key) {
       if (key) {
         document.querySelector(
           '[data-index="5"] .bird'
@@ -45,7 +45,6 @@
   function activate(action) {
     currentItem.classList.add("visible");
     if (action) {
-      console.log(action);
       actions[action](true);
     }
   }
