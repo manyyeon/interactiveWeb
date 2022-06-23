@@ -1,0 +1,74 @@
+html {
+  font-family: "Noto Sans KR", sans-serif;
+}
+body {
+  margin: 0;
+}
+div,
+section,
+header,
+footer,
+p,
+h1,
+h2 {
+  box-sizing: border-box;
+}
+a {
+  color: royalblue;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.global-width {
+  max-width: 620px; /* width 대신 max-width로 해서 620px보다 더 작은 화면에서는 더 작아지게 만들었음 */
+  margin: 0 auto; /* center 정렬 */
+  padding: 0 1rem; /* 좌우 여백 주기 html default font size가 16px이므로 1rem == 16px */
+}
+
+/* 모든 이미지들의 컨테이너 */
+.scroll-graphic {
+  /* sticky로 지정한 element가 top으로 지정한 위치가 되면 그때부터 안올라가고 붙어있음 */
+  position: sticky;
+  top: 0; /* 브라우저 상단에 가면 안움직이게 */
+  height: 100vh; /* sticky가 적용되면 높이를 차지하고 있지 않기 때문에 따로 지정해주어야 함 */
+}
+
+/* 각 이미지를 감싸고 있는 컨테이너 */
+.graphic-item {
+  display: flex;
+  align-items: center; /* 세로 방향 center 정렬 */
+  justify-content: center; /* 가로 방향 center 정렬 */
+  position: absolute; /* 이미지를 겹쳐놓음 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* 기본적인 투명도 0 */
+  transition: 0.5s; /* 0.5초동안 부드럽게 진행 */
+}
+
+.visible {
+  opacity: 1; /* visible이 붙으면 투명도가 1이 돼서 눈에 보인다. */
+}
+
+/* 이미지 자체 */
+.scene-img {
+  max-height: 100vh;
+}
+
+/* 전체 말풍선을 감싸고 있는 컨테이너 */
+.scroll-text {
+  /* z-index를 따로 지정해주지 않으면 아래에 코딩되어 있는 게 위로 올라옴
+	scroll-text부분이 graphic-item보다 아래에 코딩되어 있기 때문에 위로 올라온 거임 */
+  position: relative; /* 요소 자기 자신을 기준으로 배치 */
+}
+
+/* 각각의 말풍선   */
+.step {
+  margin-bottom: 60vh; /* 창 사이즈의 60퍼센트만큼 margin을 줌 */
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+}
