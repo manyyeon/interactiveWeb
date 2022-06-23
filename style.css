@@ -28,6 +28,7 @@ img {
 
 /* 모든 이미지들의 컨테이너 */
 .scroll-graphic {
+  overflow-x: hidden;
   /* sticky로 지정한 element가 top으로 지정한 위치가 되면 그때부터 안올라가고 붙어있음 */
   position: sticky;
   top: 0; /* 브라우저 상단에 가면 안움직이게 */
@@ -46,6 +47,7 @@ img {
   height: 100%;
   opacity: 0; /* 기본적인 투명도 0 */
   transition: 0.5s; /* 0.5초동안 부드럽게 진행 */
+  will-change: opacity;
 }
 
 .visible {
@@ -62,6 +64,7 @@ img {
   /* z-index를 따로 지정해주지 않으면 아래에 코딩되어 있는 게 위로 올라옴
 	scroll-text부분이 graphic-item보다 아래에 코딩되어 있기 때문에 위로 올라온 거임 */
   position: relative; /* 요소 자기 자신을 기준으로 배치 */
+  padding-bottom: 1px;
 }
 
 /* 각각의 말풍선   */
@@ -71,4 +74,27 @@ img {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+}
+
+/* 새 */
+.bird {
+  position: absolute;
+  left: 0;
+  bottom: 70%;
+  width: 100px;
+  transform: translateX(-100%);
+  transition: 1.5s 0.5s linear;
+}
+[data-index="5"] .bird {
+  left: 30%;
+  bottom: 30%;
+}
+
+.global-footer {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.strikethrough {
+  text-decoration: line-through;
 }
